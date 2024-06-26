@@ -9,4 +9,6 @@ TODO
 [] Tailwind / shadcn ui setup
 // pnpm add -D tailwindcss postcss autoprefixer
 // pnpm dlx tailwindcss init -p
-// tailwind.config.js: content: ['./src/**/*.{js,ts,jsx,tsx}'],
+// tailwind.config.js: content: ['./src/**/*.{ts,tsx}'],
+// rename postcss/tailwind.config -> .cjs
+// replace export default with <module.exports =>
