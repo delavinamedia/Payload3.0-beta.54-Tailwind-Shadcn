@@ -1,5 +1,5 @@
-import { ReactNode } from 'react'
-// import { cn } from '@/lib/utils'
+import React from 'react'
+import { cn } from '@/lib/utils'
 import { Inter as FontSans } from 'next/font/google'
 
 interface LayoutProps {
@@ -18,8 +18,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <html suppressHydrationWarning>
       <body
-        className="fontSans.className"
-        // className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}
+        // className="fontSans.className"
+        className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}
       >
         {children}
       </body>
