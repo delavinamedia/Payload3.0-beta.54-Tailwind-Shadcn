@@ -11,7 +11,7 @@ import './globals.css'
 const fontSans = FontSans({
   subsets: ['latin'],
   variable: '--font-sans',
-  // display: 'swap',
+  display: 'swap',
 })
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
