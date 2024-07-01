@@ -1,3 +1,5 @@
+import { lexicalEditor } from '@payloadcms/richtext-lexical'
+// import path from 'path'
 import type { CollectionConfig } from 'payload'
 
 export const Media: CollectionConfig = {
@@ -10,6 +12,11 @@ export const Media: CollectionConfig = {
       name: 'alt',
       type: 'text',
       required: true,
+    },
+    {
+      name: 'caption',
+      type: 'richText',
+      editor: lexicalEditor(),
     },
   ],
   upload: true,
