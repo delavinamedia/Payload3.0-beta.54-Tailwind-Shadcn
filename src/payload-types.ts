@@ -25,6 +25,8 @@ export interface Config {
  */
 export interface User {
   id: number;
+  name?: string | null;
+  roles?: ('admin' | 'customer')[] | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -43,6 +45,7 @@ export interface User {
 export interface Media {
   id: number;
   alt: string;
+  prefix?: string | null;
   updatedAt: string;
   createdAt: string;
   url?: string | null;
