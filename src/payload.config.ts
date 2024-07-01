@@ -31,8 +31,6 @@ export default buildConfig({
   sharp,
   plugins: [
     // storage-adapter-placeholder
-
-    // storage-adapter-placeholder
     s3Storage({
       collections: {
         media: {
