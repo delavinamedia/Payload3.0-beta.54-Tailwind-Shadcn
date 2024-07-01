@@ -19,4 +19,5 @@ DONE
 TODO
 // pnpm install
 // create < .env > & add database
+pnpm add @payloadcms/storage-s3
 // pnpm dev
