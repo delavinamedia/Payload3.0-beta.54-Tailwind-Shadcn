@@ -16,8 +16,14 @@ DONE
 // modify tailwind.config: darkMode: ['selector', '[data-mode="dark"]', '.dark'],
 // replace < .dark > in custom.css (if using) with < [data-mode="dark"] >
 
+
+[x] pnpm install
+[x] create < .env > & add database
+// pnpm add @payloadcms/storage-s3
+
+
 TODO
-// pnpm install
-// create < .env > & add database
-pnpm add @payloadcms/storage-s3
-// pnpm dev
+[x] add shadcn ui components
+[] a
+[] b
+[] c
