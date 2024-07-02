@@ -18,6 +18,7 @@ import type { JSX, SVGProps } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ShoppingCartIcon, TrashIcon } from '../icons'
+import { ScrollArea } from '../ui/scroll-area'
 
 // const itemCount = 1;
 // const fee = 1;
@@ -86,91 +87,93 @@ export default function Cart() {
             {/* ({itemCount}) */}
           </SheetTitle>
         </SheetHeader>
-        {cart.length !== 0 ? (
-          <>
-            <div className="grid gap-6">
-              <ul className="grid gap-6">
-                {cart.map((item) => (
-                  <li
-                    key={item.id}
-                    className="grid grid-cols-[minmax(100px,_200px)_1fr] items-end gap-6"
-                  >
-                    <Image
-                      src="/cat/cat.001.png"
-                      alt={item.name}
-                      width={300}
-                      height={200}
-                      className="aspect-[3/2] w-full rounded-sm object-cover"
-                    />
-                    <div className="grid gap-2">
-                      <div className="grid gap-1">
-                        <h3 className="font-semibold">{item.name}</h3>
-                        <p className="text-sm leading-none text-stone-500 dark:text-stone-400">
-                          {item.description}
-                        </p>
-                      </div>
-                      <div className="flex flex-col gap-4">
-                        <div className="flex items-center justify-between gap-2">
-                          <Button
-                            variant="outline"
-                            size="sm"
-                            onClick={() => handleRemoveItem(item.id)}
-                          >
-                            <TrashIcon className="h-4 w-4" />
-                          </Button>
-                          <div className="font-semibold">
-                            {formatPrice((item.price * item.quantity).toFixed(2))}
+        <ScrollArea>
+          {cart.length !== 0 ? (
+            <>
+              <div className="grid gap-6">
+                <ul className="grid gap-6">
+                  {cart.map((item) => (
+                    <li
+                      key={item.id}
+                      className="grid grid-cols-[minmax(100px,_200px)_1fr] items-end gap-6"
+                    >
+                      <Image
+                        src="/cat/cat.001.png"
+                        alt={item.name}
+                        width={300}
+                        height={200}
+                        className="aspect-[3/2] w-full rounded-sm object-cover"
+                      />
+                      <div className="grid gap-2">
+                        <div className="grid gap-1">
+                          <h3 className="font-semibold">{item.name}</h3>
+                          <p className="text-sm leading-none text-stone-500 dark:text-stone-400">
+                            {item.description}
+                          </p>
+                        </div>
+                        <div className="flex flex-col gap-4">
+                          <div className="flex items-center justify-between gap-2">
+                            <Button
+                              variant="outline"
+                              size="sm"
+                              onClick={() => handleRemoveItem(item.id)}
+                            >
+                              <TrashIcon className="h-4 w-4" />
+                            </Button>
+                            <div className="font-semibold">
+                              {formatPrice((item.price * item.quantity).toFixed(2))}
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </>
+          ) : (
+            <div className="flex h-full flex-col items-center justify-center space-y-1">
+              <div aria-hidden="true" className="relative mb-4 h-60 w-60 text-muted-foreground">
+                <Image src="/hippo-empty-cart.png" fill alt="empty shopping cart hippo" />
+              </div>
+              <div className="text-xl font-semibold">Your cart is empty</div>
+              <SheetTrigger asChild>
+                <Link
+                  href="/products"
+                  className={buttonVariants({
+                    variant: 'link',
+                    size: 'sm',
+                    className: 'text-sm text-muted-foreground',
+                  })}
+                >
+                  Fügen Sie Ihrem Einkaufswagen Artikel zur Kasse hinzu
+                  {/* Add items to your cart to checkout */}
+                </Link>
+              </SheetTrigger>
             </div>
-          </>
-        ) : (
-          <div className="flex h-full flex-col items-center justify-center space-y-1">
-            <div aria-hidden="true" className="relative mb-4 h-60 w-60 text-muted-foreground">
-              <Image src="/hippo-empty-cart.png" fill alt="empty shopping cart hippo" />
+          )}
+          <Separator className="my-6" />
+          <div className="grid gap-2">
+            <div className="flex items-center justify-between font-semibold">
+              <h2 className="text-lg ">Bestellwert</h2>
+              <span>{formatPrice(total.toFixed(2))}</span>
             </div>
-            <div className="text-xl font-semibold">Your cart is empty</div>
-            <SheetTrigger asChild>
-              <Link
-                href="/products"
-                className={buttonVariants({
-                  variant: 'link',
-                  size: 'sm',
-                  className: 'text-sm text-muted-foreground',
-                })}
-              >
-                Fügen Sie Ihrem Einkaufswagen Artikel zur Kasse hinzu
-                {/* Add items to your cart to checkout */}
-              </Link>
-            </SheetTrigger>
-          </div>
-        )}
-        <Separator className="my-6" />
-        <div className="grid gap-2">
-          <div className="flex items-center justify-between font-semibold">
-            <h2 className="text-lg ">Bestellwert</h2>
-            <span>{formatPrice(total.toFixed(2))}</span>
+            <hr />
+            <div className="mt-2 flex items-center justify-between">
+              <span>urheberrechtliche Leistungen</span>
+              <span>{formatPrice(subtotal.toFixed(2))}</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span>zzgl. USt (7%)</span>
+              <span>{formatPrice(tax.toFixed(2))}</span>
+            </div>
           </div>
           <hr />
-          <div className="mt-2 flex items-center justify-between">
-            <span>urheberrechtliche Leistungen</span>
-            <span>{formatPrice(subtotal.toFixed(2))}</span>
+          <div className="flex items-center justify-between font-semibold">
+            <span>Gesamtsumme</span>
+            <span>{formatPrice(total.toFixed(2))}</span>
           </div>
-          <div className="flex items-center justify-between">
-            <span>zzgl. USt (7%)</span>
-            <span>{formatPrice(tax.toFixed(2))}</span>
-          </div>
-        </div>
-        <hr />
-        <div className="flex items-center justify-between font-semibold">
-          <span>Gesamtsumme</span>
-          <span>{formatPrice(total.toFixed(2))}</span>
-        </div>
+        </ScrollArea>
         <SheetFooter className="py-4">
           <SheetTrigger asChild>
             <Link
