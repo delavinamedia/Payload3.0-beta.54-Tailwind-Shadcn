@@ -186,10 +186,10 @@ export default function HeaderNavBar() {
               <div className="sm:px-2">
                 <Cart />
               </div>
-              <span className="hidden sm:block h-6 w-px bg-stone-200" aria-hidden="true" />
+              {/*               <span className="hidden sm:block h-6 w-px bg-stone-200" aria-hidden="true" />
               <div className="hidden sm:block relative">
                 <ThemeToggle />
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
