@@ -14,11 +14,11 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { formatPrice } from '@/lib/utils'
-import type { JSX, SVGProps } from 'react'
+// import type { JSX, SVGProps } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ShoppingCartIcon, TrashIcon } from '../icons'
-import { ScrollArea } from '../ui/scroll-area'
+import { ShoppingCartIcon, TrashIcon } from '../../../components/icons'
+import { ScrollArea } from '../../../components/ui/scroll-area'
 
 // const itemCount = 1;
 // const fee = 1;

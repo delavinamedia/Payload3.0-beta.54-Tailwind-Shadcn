@@ -1,6 +1,6 @@
 import React from 'react'
-import HeaderNavBar from '@/components/app/NavBar'
-import Dummy from '@/components/app/Dummy'
+import HeaderNavBar from './_components/NavBar'
+import Dummy from './_components/Dummy'
 
 const home = () => {
   return (

@@ -1,5 +1,5 @@
-import { Button } from '../ui/button'
-import { Sheet, SheetContent, SheetTrigger } from '../ui/sheet'
+import { Button } from '../../../components/ui/button'
+import { Sheet, SheetContent, SheetTrigger } from '../../../components/ui/sheet'
 import {
   BookOpenIcon,
   ChevronRightIcon,
@@ -8,10 +8,14 @@ import {
   LayersIcon,
   MailIcon,
   MenuIcon,
-} from '../icons'
+} from '../../../components/icons'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../ui/collapsible'
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from '../../../components/ui/collapsible'
 import React from 'react'
 
 export default function MobileNav() {
