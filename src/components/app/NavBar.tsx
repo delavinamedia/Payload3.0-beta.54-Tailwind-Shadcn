@@ -16,7 +16,7 @@ import {
 import { cn } from '@/lib/utils'
 import { SearchIcon } from '../icons'
 import { Input } from '../ui/input'
-import { ThemeToggle } from '../themeToggle'
+// import { ThemeToggle } from '../themeToggle'
 import Cart from './cart'
 
 const components: { title: string; href: string; description: string }[] = [

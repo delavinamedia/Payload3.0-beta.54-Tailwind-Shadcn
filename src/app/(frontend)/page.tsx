@@ -1,6 +1,7 @@
 import React from 'react'
 import HeaderNavBar from '@/components/app/NavBar'
 import Dummy from '@/components/app/Dummy'
+import Link from 'next/link'
 
 const home = () => {
   return (
