@@ -7,6 +7,7 @@ interface LayoutProps {
 }
 
 import './globals.css'
+import { AuthProvider } from './_providers/Auth'
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -21,7 +22,13 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         // className="fontSans.className"
         className={cn('min-h-screen bg-background font-sans antialiased', fontSans.variable)}
       >
-        {children}
+        <AuthProvider
+          // To toggle between the REST and GraphQL APIs,
+          // change the `api` prop to either `rest` or `gql`
+          api="rest" // change this to `gql` to use the GraphQL API
+        >
+          <main>{children}</main>
+        </AuthProvider>
       </body>
     </html>
   )
