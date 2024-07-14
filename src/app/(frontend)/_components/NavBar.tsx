@@ -1,7 +1,7 @@
 'use client'
 
 import React from 'react'
-import MobileNav from './mobileNav'
+import MobileNav from './MobileNav'
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -12,12 +12,12 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from '../ui/navigation-menu'
+} from '../../../components/ui/navigation-menu'
 import { cn } from '@/lib/utils'
-import { SearchIcon } from '../icons'
-import { Input } from '../ui/input'
-// import { ThemeToggle } from '../themeToggle'
-import Cart from './cart'
+import { SearchIcon } from '../../../components/icons'
+import { Input } from '../../../components/ui/input'
+// import { ThemeToggle } from '../../../components/themeToggle'
+import Cart from './Cart'
 
 const components: { title: string; href: string; description: string }[] = [
   {
