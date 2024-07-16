@@ -18,10 +18,10 @@ export default async function Login() {
   }
 
   return (
-    <Gutter className="container mb-4">
+    <section className="container mb-4">
       <RenderParams className="mt-4" />
       <h1>Log in</h1>
       <LoginForm />
-    </Gutter>
+    </section>
   )
 }

@@ -48,6 +48,7 @@ export const LoginForm: React.FC = () => {
   )
 
   return (
+    <>
     <form className="flex flex-col items-start" onSubmit={handleSubmit(onSubmit)}>
       <p>
         {'To log in, use the email '}
@@ -90,5 +91,6 @@ export const LoginForm: React.FC = () => {
         <Link href={`/recover-password${allParams}`}>Recover your password</Link>
       </div>
     </form>
+    </>
   )
 }
