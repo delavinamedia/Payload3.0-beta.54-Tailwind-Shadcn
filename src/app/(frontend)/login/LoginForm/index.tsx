@@ -9,7 +9,6 @@ import { Button } from '../../_components/Button'
 import { Input } from '../../_components/Input'
 import { Message } from '../../_components/Message'
 import { useAuth } from '../../_providers/Auth'
-import classes from './index.module.scss'
 
 type FormData = {
   email: string
@@ -49,7 +48,7 @@ export const LoginForm: React.FC = () => {
   )
 
   return (
-    <form className={classes.form} onSubmit={handleSubmit(onSubmit)}>
+    <form className="flex flex-col items-start" onSubmit={handleSubmit(onSubmit)}>
       <p>
         {'To log in, use the email '}
         <b>demo@payloadcms.com</b>
@@ -61,7 +60,7 @@ export const LoginForm: React.FC = () => {
         </Link>
         .
       </p>
-      <Message className={classes.message} error={error} />
+      <Message className="mb-4" error={error} />
       <Input
         error={errors.email}
         label="Email Address"
@@ -80,7 +79,7 @@ export const LoginForm: React.FC = () => {
       />
       <Button
         appearance="primary"
-        className={classes.submit}
+        className="mt-4 w-full"
         disabled={isLoading}
         label={isLoading ? 'Processing' : 'Login'}
         type="submit"

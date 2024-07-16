@@ -7,7 +7,6 @@ import config from '../../../payload.config'
 import { Gutter } from '../_components/Gutter'
 import { RenderParams } from '../_components/RenderParams'
 import { LoginForm } from './LoginForm'
-import classes from './index.module.scss'
 
 export default async function Login() {
   const headers = getHeaders()
@@ -19,8 +18,8 @@ export default async function Login() {
   }
 
   return (
-    <Gutter className={classes.login}>
-      <RenderParams className={classes.params} />
+    <Gutter className="container mb-4">
+      <RenderParams className="mt-4" />
       <h1>Log in</h1>
       <LoginForm />
     </Gutter>
