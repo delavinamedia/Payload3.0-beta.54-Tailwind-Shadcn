@@ -24,6 +24,14 @@ export default buildConfig({
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
   },
+  cors: [
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
+    process.env.PAYLOAD_PUBLIC_SITE_URL || '',
+  ].filter(Boolean),
+  csrf: [
+    process.env.PAYLOAD_PUBLIC_SERVER_URL || '',
+    process.env.PAYLOAD_PUBLIC_SITE_URL || '',
+  ].filter(Boolean),
   db: postgresAdapter({
     pool: {
       connectionString: process.env.DATABASE_URI || '',
